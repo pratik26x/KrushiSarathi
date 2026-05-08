@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loans for Farmers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loanDetails.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navlist">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('home') }}#about-section">About Us</a></li>
+            <li><a href="{{ url_for('home') }}#facilities-section">Our Facilities</a></li>
+            <li><a href="{{ url_for('home') }}#finance-section">Finance</a></li>
+            <li><a href="{{ url_for('home') }}#contact-section">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="loans-page">
+        <h1>Loans for Farmers</h1>
+
+        <section class="loan-details">
+            <div class="loan-content">
+                <div class="loan-image">
+                    <img src="{{ url_for('static', filename='images/loan1.png') }}" alt="Loan 1 Image">
+                </div>
+                <div class="loan-info">
+                    <h3>Loan for Financing Farmers for Purchase of Land (Agricultural Loan by Bank of Maharashtra)</h3>
+                    <p>Eligibility Criteria: <br>
+                        - Small & Marginal Farmers (Who owns maximum of 5 acre of non irrigated land or 2.5 acres of irrigated land including land to be purchase)<br>
+                        - Share Croppers/tenant farmers cultivating up to 2.5 acres of irrigated land or 5 acres of unirrigated land<br>
+                        - Entrepreneurs with agricultural background are also eligible (Provided state laws permits purchase of agri lands by non agriculturists)</p>
+                    <a href="https://bankofmaharashtra.in/farmers-loan-for-purchase-of-land" target="_blank" class="apply-btn">Apply Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="loan-details">
+            <div class="loan-content">
+                <div class="loan-image">
+                    <img src="{{ url_for('static', filename='images/loan2.png') }}" alt="Loan 2 Image">
+                </div>
+                <div class="loan-info">
+                    <h3>Kisan Samriddhi Rin (Crop Loan by State Bank of India)</h3>
+                    <p>Eligibility Criteria: <br>
+                        - Farmers engaged in progressive or Scientific farming.<br>
+                        - Minimum land holding: At least having 4 acres of land holding Or farmer is engaged in scientific methods of farming.<br>
+                        - Credit score: 650 and above · Age Criteria: Min. 18 years, Max. 70 years. (Above 60 yrs., Co-borrower is must).</p>
+                    <a href="https://sbi.co.in/web/agri-rural/agri-rural/agriculture-banking/kisan-samriddhi-rin" target="_blank" class="apply-btn">Apply Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="loan-details">
+            <div class="loan-content">
+                <div class="loan-image">
+                    <img src="{{ url_for('static', filename='images/loan3.png') }}" alt="Loan 3 Image">
+                </div>
+                <div class="loan-info">
+                    <h3>Finance To Poultry Sector (Livestock Loan by Union Bank of India)</h3>
+                    <p>Eligibility Criteria: <br>
+                        - Individual/ Joint individuals/Proprietor concern/Partnership firm /LLP /Private ltd Company/Public Limited Company experienced in the line of poultry farming and competent to run the business.<br>
+                        - The unit should be technically feasible and economically viable.<br>
+                        - Other constitutions such as group of individuals, Associations, Co-operatives, Federations, FPOs can also be financed for raising poultry.</p>
+                    <a href="https://www.unionbankofindia.co.in/english/finance-to-poultry-sector.aspx" target="_blank" class="apply-btn">Apply Now</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

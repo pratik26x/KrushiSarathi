@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Schemes for Farmers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/schemes.css') }}">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul class="navlist">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('home') }}#about-section">About Us</a></li>
+            <li><a href="{{ url_for('home') }}#facilities-section">Our Facilities</a></li>
+            <li><a href="{{ url_for('home') }}#finance-section" class="active">Finance</a></li>
+            <li><a href="{{ url_for('home') }}#contact-section">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section with Lottie Animation and Text -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-animation">
+                <dotlottie-player 
+                    src="https://lottie.host/8eddaaab-d6b0-4aa9-85f8-1c5e6ec2f397/iOm8B4QxKa.json" 
+                    background="transparent" 
+                    speed="1" 
+                    style="width: 300px; height: 300px;" 
+                    loop 
+                    autoplay>
+                </dotlottie-player>
+            </div>
+            <div class="hero-text">
+                <h1>Discover Schemes for Farmers</h1>
+                <p>Empowering farmers through government initiatives for a better tomorrow.</p>
+                <a href="#schemes-section" class="explore-btn">Explore Schemes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro">
+        <p>Here’s a list of important schemes designed to provide financial aid, insurance, and resources for Indian farmers. Explore how these can benefit your farming practices.</p>
+    </section>
+
+    <!-- Schemes Overview Section -->
+    <section id="schemes-section" class="schemes-container">
+        <!-- Scheme 1 -->
+        <div class="scheme-card">
+            <img src="{{ url_for('static', filename='images/scheme1.png') }}" alt="PM-KISAN" class="scheme-image">
+            <h3>Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)</h3>
+            <p>Provides ₹6,000 per year to small and marginal farmers, credited in three installments.</p>
+            <ul>
+                <li><strong>Eligibility:</strong> Small and marginal farmers.</li>
+            </ul>
+            <a href="https://pmkisan.gov.in/" class="btn-learn-more">Learn More</a>
+        </div>
+
+        <!-- Scheme 2 -->
+        <div class="scheme-card">
+            <img src="{{ url_for('static', filename='images/scheme2.jpg') }}" alt="PMFBY" class="scheme-image">
+            <h3>Pradhan Mantri Fasal Bima Yojana (PMFBY)</h3>
+            <p>A crop insurance scheme to protect farmers against crop loss due to natural calamities.</p>
+            <ul>
+                <li><strong>Eligibility:</strong> All farmers who have taken loans for notified crops.</li>
+            </ul>
+            <a href="https://pmfby.gov.in/" class="btn-learn-more">Learn More</a>
+        </div>
+
+        <!-- Scheme 3 -->
+        <div class="scheme-card">
+            <img src="{{ url_for('static', filename='images/scheme3.jpg') }}" alt="Soil Health Card" class="scheme-image">
+            <h3>Soil Health Card Scheme</h3>
+            <p>Provides farmers with soil health cards to improve soil fertility.</p>
+            <ul>
+                <li><strong>Eligibility:</strong> All farmers across India.</li>
+            </ul>
+            <a href="https://soilhealth.dac.gov.in/home" class="btn-learn-more">Learn More</a>
+        </div>
+
+        <!-- Scheme 4 -->
+        <div class="scheme-card">
+            <img src="{{ url_for('static', filename='images/scheme4.jpg') }}" alt="PKVY" class="scheme-image">
+            <h3>Paramparagat Krishi Vikas Yojana (PKVY)</h3>
+            <p>Promotes organic farming through the development of clusters and Farmer Producer Organizations (FPOs).</p>
+            <ul>
+                <li><strong>Eligibility:</strong> Farmers interested in organic farming.</li>
+            </ul>
+            <a href="https://www.myscheme.gov.in/schemes/pkvy" class="btn-learn-more">Learn More</a>
+        </div>
+
+        <!-- Scheme 5 -->
+        <div class="scheme-card">
+            <img src="{{ url_for('static', filename='images/scheme5.jpg') }}" alt="Scheme 5" class="scheme-image">
+            <h3>Pradhan Mantri Krishi Sinchai Yojana (PMKSY)</h3>
+            <p>A scheme aimed at improving irrigation facilities for farmers to enhance productivity & ensure water conservation.</p>
+            <ul>
+                <li><strong>Eligibility:</strong> Any farmer can apply for benefits under this scheme.</li>
+            </ul>
+            <a href="https://www.myscheme.gov.in/schemes/pmksypdmc" class="btn-learn-more">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 KrushiSarathi. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

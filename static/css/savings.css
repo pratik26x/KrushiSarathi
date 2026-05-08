@@ -1,0 +1,233 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --main-color: #5A9A5A;
+    --accent-color: #8C5A2B;
+    --background-color: #F0E8D5;
+    --text-color: #2c3e50;
+    --white-color: #FFFFFF;
+    --card-bg-color: rgba(255, 255, 255, 0.85); /* Subtle background color for cards */
+}
+
+/* Enable smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body Style */
+body {
+    font-family: 'Inter', sans-serif;
+    padding-top: 60px; /* Ensure space for fixed navbar */
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 7%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navlist {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navlist a {
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.6s ease;
+}
+
+.navlist a:hover {
+    color: var(--main-color);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+    background-color: var(--background-color);
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.hero-animation {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Circular Animation Card */
+.animation-card {
+    width: 300px; /* Adjust size as needed */
+    height: 300px; /* Adjust size as needed */
+    border-radius: 50%; /* Makes the card circular */
+    overflow: hidden; /* Ensure content stays within the circle */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add some shadow for depth */
+    background-color: white;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.hero .explore-btn {
+    background-color: var(--main-color);
+    color: var(--white-color);
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.hero .explore-btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Introduction Section */
+.intro {
+    padding: 40px 10%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+/* Savings Section */
+.savings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 50px 10%;
+}
+
+.savings-card {
+    background-color: var(--card-bg-color);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Add hover effect */
+.savings-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background-color: var(--white-color); /* Slightly brighter on hover */
+}
+
+.savings-card h3 {
+    color: var(--main-color);
+    margin-bottom: 15px;
+}
+
+.savings-card p {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.savings-card ul {
+    color: var(--text-color);
+    margin-bottom: 55px;
+}
+
+/* Circular Image */
+.savings-card .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px; /* Space between image and text */
+}
+
+.savings-card .image-container img {
+    width: 100px; /* Set a fixed width for the image */
+    height: 100px; /* Set a fixed height for the image */
+    object-fit: cover; /* Ensure the image covers the container */
+}
+
+/* Positioning the button */
+.savings-card .btn-learn-more {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    position: absolute; /* Position button at the bottom */
+    bottom: 20px; /* Position from bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+}
+
+.savings-card .btn-learn-more:hover {
+    background-color: var(--main-color);
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    background-color: var(--text-color);
+    color: var(--white-color);
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        margin-top: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .savings-container {
+        padding: 20px 5%;
+    }
+}

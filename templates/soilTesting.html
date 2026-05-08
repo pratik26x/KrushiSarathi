@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Testing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/soilTesting.css') }}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul class="navlist">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('home') }}#about-section">About Us</a></li>
+            <li><a href="{{ url_for('home') }}#facilities-section">Our Facilities</a></li>
+            <li><a href="{{ url_for('home') }}#finance-section">Finance</a></li>
+            <li><a href="{{ url_for('home') }}#contact-section">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Welcoming Section -->
+    <section class="hero-section">
+        <div class="hero-text-container">
+            <h1 class="hero-text">Know Your Soil, <br> Grow Your Crops</h1>
+        </div>
+    </section>
+
+    <!-- Soil Testing Service Section -->
+    <section class="service-section">
+        <div class="service-content">
+            <div class="service-description" data-animate="slide-in-left">
+                <h2>Soil Testing Service</h2>
+                <p>
+                    KrushiSarathi helps you find soil testing labs <strong>across India</strong>—every state and union territory has demo listings you can use to book a visit. 
+                    By booking an appointment, a technician will come to your farm, test your soil, and provide a detailed report.
+                </p>
+            </div>
+            <img src="/static/images/soil-test-intro.jpg" alt="Soil Testing" class="service-image" data-animate="slide-in-right">
+        </div>
+    </section>
+    
+
+
+    <!-- Get Your Soil Tested Section -->
+    <section class="get-tested-section" data-animate="slide-up">
+        <img src="/static/images/get-tested.jpg" alt="Get Your Soil Tested" class="get-tested-image">
+        <div class="get-tested-description">
+            <h2>Get Your Soil Tested</h2>
+            <p>Choose your state, then your city from the list (or all cities in that state), then pick a lab—coverage is pan-India for this demo.</p>
+            <a href="{{ url_for('test') }}" class="book-btn">Book a Soil Testing Lab</a>
+        </div>
+    </section>
+
+
+
+    <script>
+        let lastScrollTop = 0; // Variable to track the previous scroll position
+    
+        function animateOnScroll() {
+            const elementsToAnimate = document.querySelectorAll('[data-animate]');
+            const viewportHeight = window.innerHeight;
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+            elementsToAnimate.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+    
+                // Scrolling down: trigger animations
+                if (position < viewportHeight - 100 && currentScrollTop > lastScrollTop) {
+                    element.classList.add(element.dataset.animate);
+                } 
+                // Scrolling up: reverse animations
+                else if (position > viewportHeight - 100 && currentScrollTop < lastScrollTop) {
+                    element.classList.remove(element.dataset.animate);
+                }
+            });
+    
+            lastScrollTop = currentScrollTop; // Update the scroll position
+        }
+    
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+    
+    
+    
+</body>
+</html>

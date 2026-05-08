@@ -1,0 +1,180 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* background-color: #F0E8D5; */
+    background: url('/static/images/Soil Test Backgraound.png');
+    padding-top: 100px; /* To avoid overlap with fixed navbar */
+    background-size: cover;
+    /* background-position: center; */
+}
+
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 7%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navlist {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navlist a {
+    color: #2c3e50;
+    font-size: 1rem;
+    transition: all 0.6s ease;
+}
+
+.navlist a:hover {
+    color: #5A9A5A;
+}
+
+/* Search Section */
+.search-section {
+    text-align: center;
+    padding: 50px 10%;
+}
+
+.search-section h2 {
+    color: #5A9A5A;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.search-intro {
+    max-width: 640px;
+    margin: 0 auto 24px;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.search-section .req {
+    color: #c0392b;
+}
+
+#labSearchForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#labSearchForm label {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+#labSearchForm input, #labSearchForm select {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 520px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-btn {
+    background-color: #5A9A5A;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #8C5A2B;
+    transform: translateY(-5px);
+}
+
+/* Labs List Section */
+.labs-section {
+    text-align: center;
+    padding: 50px 10%;
+    display: none;
+}
+
+.labs-section h2 {
+    color: #5A9A5A;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#labOptions li {
+    padding: 15px;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#labOptions li:hover {
+    background-color: #5A9A5A;
+    color: white;
+}
+
+/* Confirmation Popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.home-btn {
+    background-color: #5A9A5A;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+    background-color: #8C5A2B;
+    transform: translateY(-5px);
+}
+
+.confirm-btn {
+    background-color: #5A9A5A;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.confirm-btn:hover {
+    background-color: #8C5A2B;
+    transform: translateY(-5px);
+}

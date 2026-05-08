@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Soil Lab — Pan-India | KrushiSarathi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul class="navlist">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('home') }}#about-section">About Us</a></li>
+            <li><a href="{{ url_for('home') }}#facilities-section">Our Facilities</a></li>
+            <li><a href="{{ url_for('home') }}#finance-section">Finance</a></li>
+            <li><a href="{{ url_for('home') }}#contact-section">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Search Form Section -->
+    <section class="search-section">
+        <h2>Find a soil testing lab — all over India</h2>
+        <p class="search-intro">Select your state and city (or &ldquo;All cities in this state&rdquo;). Each city lists 2&ndash;3 demo labs. Listings are fictional and for booking-flow testing only.</p>
+        <form id="labSearchForm">
+            <label for="state">State / UT <span class="req">*</span></label>
+            <select id="state" name="state" required>
+                <option value="">— Select state or union territory —</option>
+            </select>
+
+            <label for="city">City <span class="req">*</span></label>
+            <select id="city" name="city" required disabled>
+                <option value="">— First select a state —</option>
+            </select>
+
+            <button type="button" class="search-btn" onclick="filterLabs()">Search labs</button>
+        </form>
+    </section>
+
+    <!-- Labs List Section -->
+    <section class="labs-section" id="labsList" style="display:none;">
+        <h2>Soil labs in your selection</h2>
+        <ul id="labOptions"></ul>
+    </section>
+
+    <!-- Confirmation Popup -->
+    <div id="confirmationPopup" class="popup" style="display:none;">
+        <div class="popup-content">
+            <p id="confirmationMessage"></p>
+            <button class="confirm-btn" onclick="confirmAppointmentBackend()">Confirm Appointment</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/soil_labs_india.js') }}"></script>
+    <script>
+        var labs = window.SOIL_LABS_INDIA || [];
+        var CITIES_BY_STATE = window.CITIES_BY_STATE || {};
+
+        function populateStateDropdown() {
+            var stateSel = document.getElementById('state');
+            var keys = Object.keys(CITIES_BY_STATE).sort();
+            var i;
+            var opt;
+            while (stateSel.options.length > 1) {
+                stateSel.remove(1);
+            }
+            for (i = 0; i < keys.length; i++) {
+                opt = document.createElement('option');
+                opt.value = keys[i];
+                opt.textContent = keys[i];
+                stateSel.appendChild(opt);
+            }
+        }
+
+        function onStateChange() {
+            var state = document.getElementById('state').value;
+            var citySel = document.getElementById('city');
+            citySel.innerHTML = '';
+            var ph = document.createElement('option');
+            ph.value = '';
+            ph.textContent = '— Select city —';
+            citySel.appendChild(ph);
+            if (!state || !CITIES_BY_STATE[state]) {
+                citySel.disabled = true;
+                citySel.required = false;
+                return;
+            }
+            citySel.disabled = false;
+            citySel.required = true;
+            var allOpt = document.createElement('option');
+            allOpt.value = '__ALL__';
+            allOpt.textContent = 'All cities in this state';
+            citySel.appendChild(allOpt);
+            CITIES_BY_STATE[state].forEach(function (cityName) {
+                var o = document.createElement('option');
+                o.value = cityName;
+                o.textContent = cityName;
+                citySel.appendChild(o);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            populateStateDropdown();
+            document.getElementById('state').addEventListener('change', onStateChange);
+        });
+
+        function filterLabs() {
+            var state = document.getElementById('state').value;
+            var city = document.getElementById('city').value;
+
+            if (!state) {
+                alert('Please select a state or union territory.');
+                return;
+            }
+            if (!city) {
+                alert('Please select a city, or choose "All cities in this state".');
+                return;
+            }
+
+            var filteredLabs = labs.filter(function (lab) {
+                return lab.state === state;
+            });
+
+            if (city !== '__ALL__') {
+                filteredLabs = filteredLabs.filter(function (lab) {
+                    return lab.city === city;
+                });
+            }
+
+            var labOptions = document.getElementById('labOptions');
+            labOptions.innerHTML = '';
+
+            if (filteredLabs.length > 0) {
+                filteredLabs.forEach(function (lab) {
+                    var listItem = document.createElement('li');
+                    listItem.textContent = lab.name + ', ' + lab.city + ' — ' + lab.state;
+                    listItem.onclick = function () {
+                        confirmAppointment(lab.contactPerson, lab.name, lab.visitDate, lab.contactNumber);
+                    };
+                    labOptions.appendChild(listItem);
+                });
+                document.getElementById('labsList').style.display = 'block';
+            } else {
+                labOptions.innerHTML = '<li>No labs found for this selection. Try another city or use "All cities in this state".</li>';
+                document.getElementById('labsList').style.display = 'block';
+            }
+        }
+
+        let currentAppointment = {};
+
+        function confirmAppointment(contactPerson, labName, visitDate, contactNumber) {
+            document.getElementById('confirmationMessage').innerHTML =
+                'Your appointment with ' + contactPerson + ' from ' + labName + ' will be confirmed. They will visit you on ' + visitDate + '.<br>Contact number: ' + contactNumber;
+
+            currentAppointment = {
+                contactPerson: contactPerson,
+                labName: labName,
+                visitDate: visitDate,
+                contactNumber: contactNumber
+            };
+
+            document.getElementById('confirmationPopup').style.display = 'block';
+        }
+
+        function confirmAppointmentBackend() {
+            fetch('/confirm_appointment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(currentAppointment),
+            })
+            .then(function (response) { return response.json(); })
+            .then(function (data) {
+                if (data.status === 'success') {
+                    window.location.href = "{{ url_for('home') }}";
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+</body>
+</html>

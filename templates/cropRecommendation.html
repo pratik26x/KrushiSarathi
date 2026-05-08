@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cropRecommendation.css') }}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{{ url_for('home') }}" class="logo">KrushiSarathi</a>
+            <ul class="navlist">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('home') }}#about-section">About Us</a></li>
+                <li><a href="{{ url_for('home') }}#facilities-section">Our Facilities</a></li>
+                <li><a href="{{ url_for('home') }}#finance-section">Finance</a></li>
+                <li><a href="{{ url_for('home') }}#contact-section">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-text">
+            <h1>Optimize Your Yield</h1>
+            <p>Get tailored crop recommendations based on your farm's soil quality and climate conditions.</p>
+            <!-- <a href="#" class="cta-btn">Get Started</a> -->
+            <a href="#info-section" class="cta-btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="info-section" id="info-section">
+        <div class="info-content">
+            <div class="info-image">
+                <img src="/static/images/crop-recommendation-info.jpeg" alt="Crop Recommendation">
+            </div>
+            <div class="info-text">
+                <h2>Why Crop Recommendations Matter</h2>
+                <p>Choosing the right crops for your soil and weather conditions is crucial for maximizing yield and sustainability. Our expert advice helps you make informed decisions tailored to your farm’s unique characteristics.</p>
+                <a href="{{ url_for('recommendationForm') }}" class="explore-btn">Explore Recommendations</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

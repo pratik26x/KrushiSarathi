@@ -1,0 +1,303 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --main-color: #5A9A5A;
+    --accent-color: #8C5A2B;
+    --background-color: #F0E8D5;
+    --text-color: #2c3e50;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+}
+
+/* Navbar styles */
+.navbar {
+    position: fixed; /* Fixed position to keep it at the top while scrolling */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 7%;
+    background-color: rgba(255, 255, 255, 0.9); /* Increased transparency */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navlist {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navlist a {
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.6s ease;
+}
+
+.navlist a:hover {
+    color: var(--main-color);
+}
+
+/* Add padding to avoid overlap with the fixed navbar */
+/* body {
+    padding-top: 100px;
+} */
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), 
+                url('/static/images/soil-test-background.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-text-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-text {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-in-out, slideIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(50px); }
+    100% { transform: translateY(0); }
+}
+
+/* Soil Testing Service Section */
+/* .service-section {
+    display: flex;
+    align-items: center;
+    padding: 50px 10%;
+    background-color: white;
+}
+
+.service-image {
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 50px;
+}
+
+.service-description {
+    flex: 1;
+}
+
+.service-description h2 {
+    font-size: 2rem;
+    color: var(--main-color);
+    margin-bottom: 15px;
+}
+
+.service-description p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+} */
+
+
+/* Soil Testing Service Section */
+.service-section {
+    display: flex;
+    align-items: center;
+    padding: 50px 10%;
+    background-color: white;
+}
+
+.service-content {
+    display: flex;
+    justify-content: space-between; /* Ensure spacing between text and image */
+    align-items: center;
+    width: 100%;
+}
+
+.service-description {
+    flex: 1;
+    margin-right: 50px; /* Add margin to the right of the text to create space */
+}
+
+.service-description h2 {
+    font-size: 2rem;
+    color: var(--main-color);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.service-description p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.service-image {
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+
+/* Get Your Soil Tested Section */
+.get-tested-section {
+    display: flex;
+    align-items: center;
+    padding: 50px 10%;
+    background-color: var(--background-color);
+}
+
+.get-tested-image {
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 50px;
+}
+
+.get-tested-description {
+    flex: 1;
+}
+
+.get-tested-description h2 {
+    font-size: 2rem;
+    color: var(--main-color);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.get-tested-description p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.book-btn {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-left: 27%;
+}
+
+.book-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+
+/* Staggered fade-in with scale effect */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fade-in-scale {
+    opacity: 0;
+    animation: fadeInScale 1.5s ease forwards;
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-left {
+    opacity: 0;
+    animation: slideInLeft 1.2s ease forwards;
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-right {
+    opacity: 0;
+    animation: slideInRight 1.2s ease forwards;
+}
+
+/* Animation for slide-up effect */
+@keyframes slideUpScroll {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-up {
+    opacity: 0;
+    animation: slideUpScroll 1.2s ease forwards;
+}
+
+[data-animate="slide-up"] {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+/* Example: Make sure reverse animations are smooth */
+.fade-in-scale {
+    transition: transform 1.5s ease, opacity 1.5s ease; /* Smooth reverse */
+}
+
+.slide-in-left,
+.slide-in-right {
+    transition: transform 1.2s ease, opacity 1.2s ease; /* Smooth reverse */
+}
+
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-text {
+        font-size: 2rem;
+    }
+}

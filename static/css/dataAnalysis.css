@@ -1,0 +1,134 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --text-color: #2c3e50; /* Dark color for text */
+    --main-color: #5A9A5A; /* Soft green for primary accents */
+    --accent-color: #8C5A2B; /* Brown for secondary accents */
+    --background-color: #F0E8D5; /* Light beige for background */
+}
+
+html, body {
+    height: 100%; /* Ensure the body and html occupy full height */
+}
+
+body {
+    background: url('/static/images/agriculture-background.jpg') no-repeat center center fixed; /* Set background image */
+    background-size: cover; /* Cover the entire viewport */
+    font-family: 'Inter', sans-serif;
+    position: relative; /* Position relative for absolute children */
+}
+
+/* Overlay for the background color */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(240, 232, 213, 0.6); /* Light beige with opacity for overlay effect */
+    z-index: 1; /* Ensure it stays above the background image but below content */
+}
+
+/* Navbar styles */
+.navbar {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 7%;
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navlist {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navlist a {
+    display: inline-block;
+    margin: 0 35px;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.6s ease;
+}
+
+.navlist a:hover {
+    color: var(--main-color);
+}
+
+/* Data Analysis Page Layout */
+.data-analysis-page {
+    padding: 80px 10%; /* Adjust padding for spacing */
+    position: relative; /* Position relative to keep content above the overlay */
+    z-index: 2; /* Ensure content is above the overlay */
+    height: 100vh; /* Set height to fill the viewport */
+    overflow: hidden; /* Hide any overflow to prevent scrolling */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--main-color); /* Greenish color for title */
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Grid layout for dashboard and description */
+.dashboard-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* 75% for dashboard, 25% for description */
+    gap: 20px;
+    align-items: start;
+}
+
+.dashboard-container {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* White background for dashboard section with slight transparency */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.dashboard-container iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 8px; /* Rounded corners for iframe */
+}
+
+.dashboard-description {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 400px;
+    font-family: 'Inter', sans-serif;
+    padding: 20px; /* Padding around description */
+    background-color: rgba(255, 255, 255, 0.9); /* White background for description with slight transparency */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for description box */
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .dashboard-wrapper {
+        grid-template-columns: 1fr; /* Stack the dashboard and description on smaller screens */
+    }
+    
+    .dashboard-container, .dashboard-description {
+        max-width: 100%;
+    }
+}

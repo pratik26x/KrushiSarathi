@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendation Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recommendationResult.css') }}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{{ url_for('home') }}" class="logo">KrushiSarathi</a>
+            <ul class="navlist">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('home') }}#about-section">About Us</a></li>
+                <li><a href="{{ url_for('home') }}#facilities-section">Our Facilities</a></li>
+                <li><a href="{{ url_for('home') }}#finance-section">Finance</a></li>
+                <li><a href="{{ url_for('home') }}#contact-section">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Result Section -->
+    <section class="result-section">
+        <h2>Your Recommended Crop</h2>
+        <p>Based on the information provided, we recommend you to grow:</p>
+        <h1 class="crop-name">{{ predicted_crop }}</h1>
+        <a href="{{ url_for('home') }}" class="home-btn">Back to Home</a>
+    </section>
+
+</body>
+</html>

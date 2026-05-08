@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loans Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loans.css') }}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul class="navlist">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('home') }}#about-section">About Us</a></li>
+            <li><a href="{{ url_for('home') }}#facilities-section">Our Facilities</a></li>
+            <li><a href="{{ url_for('home') }}#finance-section">Finance</a></li>
+            <li><a href="{{ url_for('home') }}#contact-section">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section with Lottie Animation and Text -->
+    <section class="hero-section">
+        <div class="animation-container">
+            <dotlottie-player src="https://lottie.host/def970ec-80d8-42cc-ad9e-9fdfa2c1d810/96RTbbkLzf.json"
+                background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></dotlottie-player>
+        </div>
+        <div class="text-container">
+            <h1>Access Loans to Support Your Farm</h1>
+        </div>
+    </section>
+
+    <!-- Loans Overview Section -->
+    <section class="loans-overview">
+        <h2 class="section-title">Loan Options for Farmers</h2>
+        <div class="loan-details">
+            <div class="loan-card" data-animate="fade-in-scale">
+                <h3>Agricultural Loans</h3>
+                <p>Get access to funds to support your farming activities, from purchasing equipment to acquiring fertilizers and seeds.</p>
+            </div>
+            <div class="loan-card" data-animate="fade-in-scale">
+                <h3>Crop Loans</h3>
+                <p>Avail crop loans to meet your short-term credit needs for growing your crops, covering all stages from planting to harvesting.</p>
+            </div>
+            <div class="loan-card" data-animate="fade-in-scale">
+                <h3>Livestock Loans</h3>
+                <p>Receive loans to expand your livestock operations, including cattle, poultry, or dairy farming.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apply for Loan Section -->
+    <section class="apply-section">
+        <div class="apply-content">
+            <h2>Ready to Apply for a Loan?</h2>
+            <p>Get the financial support you need to grow your agricultural business. Apply today and ensure a prosperous future for your farm.</p>
+            <a href="{{ url_for('loanDetails') }}" class="apply-btn">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- <footer class="footer">
+        <p>© 2026 KrushiSarathi. All rights reserved.</p>
+    </footer> -->
+
+    <script>
+        // Add animation on scroll (similar to your soilTesting page)
+        let lastScrollTop = 0;
+        function animateOnScroll() {
+            const elementsToAnimate = document.querySelectorAll('[data-animate]');
+            const viewportHeight = window.innerHeight;
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            elementsToAnimate.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+
+                if (position < viewportHeight - 100 && currentScrollTop > lastScrollTop) {
+                    element.classList.add(element.dataset.animate);
+                } else if (position > viewportHeight - 100 && currentScrollTop < lastScrollTop) {
+                    element.classList.remove(element.dataset.animate);
+                }
+            });
+
+            lastScrollTop = currentScrollTop;
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+</body>
+</html>

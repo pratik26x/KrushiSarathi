@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Savings for Farmers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/savings.css') }}">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul class="navlist">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('home') }}#about-section">About Us</a></li>
+            <li><a href="{{ url_for('home') }}#facilities-section">Our Facilities</a></li>
+            <li><a href="{{ url_for('home') }}#finance-section" class="active">Finance</a></li>
+            <li><a href="{{ url_for('home') }}#contact-section">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section with Text on the Left and Circular Card for Lottie Animation on the Right -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Explore Savings Options for Farmers</h1>
+                <p>Discover various savings schemes that can help farmers secure their financial future.</p>
+                <a href="#savings-section" class="explore-btn">Explore Savings</a>
+            </div>
+            <div class="hero-animation">
+                <div class="animation-card">
+                    <dotlottie-player 
+                        src="https://lottie.host/538cfb76-81ed-440a-bbbb-44323a7adff8/YJLeYhuKEF.json" 
+                        background="transparent" 
+                        speed="1" 
+                        style="width: 85%; height: 85%;" 
+                        loop 
+                        autoplay>
+                    </dotlottie-player>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro">
+        <p>Here’s a list of savings options designed specifically for farmers to help them plan for the future and manage their finances effectively.</p>
+    </section>
+
+    <!-- Savings Overview Section -->
+    <section id="savings-section" class="savings-container">
+        <!-- Savings Option 1 -->
+        <div class="savings-card">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/savings1.png') }}" alt="Farmers' Savings Account" />
+            </div>
+            <h3>Farmers' Savings Account</h3>
+            <p>Special savings accounts with higher interest rates designed for farmers.</p>
+            <ul>
+                <li><strong>Eligibility:</strong> All farmers.</li>
+            </ul>
+            <a href="https://www.hdfcbank.com/personal/save/accounts/savings-accounts/savings-farmers-account" class="btn-learn-more">Learn More</a>
+        </div>
+
+        <!-- Savings Option 2 -->
+        <div class="savings-card">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/savings2.png') }}" alt="Public Provident Fund" />
+            </div>
+            <h3>Public Provident Fund (PPF)</h3>
+            <p>A long-term savings scheme that offers tax benefits and attractive interest rates.</p>
+            <ul>
+                <li><strong>Eligibility:</strong> Any Indian citizen.</li>
+            </ul>
+            <a href="https://www.bankofbaroda.in/personal-banking/accounts/baroda-public-provident-fund" class="btn-learn-more">Learn More</a>
+        </div>
+
+        <!-- Savings Option 3 -->
+        <div class="savings-card">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/savings3.png') }}" alt="Fixed Deposits" />
+            </div>
+            <h3>Fixed Deposits for Farmers</h3>
+            <p>Get better interest rates on fixed deposits specifically designed for farmers.</p>
+            <ul>
+                <li><strong>Eligibility:</strong> All farmers.</li>
+            </ul>
+            <a href="https://www.icicibank.com/personal-banking/deposits/fixed-deposit/fd-interest-rates" class="btn-learn-more">Learn More</a>
+        </div>
+
+        <!-- Savings Option 4 -->
+        <div class="savings-card">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/savings4.png') }}" alt="National Pension Scheme" />
+            </div>
+            <h3>National Pension Scheme (NPS)</h3>
+            <p>Retirement savings scheme that encourages long-term savings among farmers.</p>
+            <ul>
+                <li><strong>Eligibility:</strong> Any Indian citizen between 18-60 years.</li>
+            </ul>
+            <a href="https://www.indiapost.gov.in/Financial/pages/content/nps.aspx" class="btn-learn-more">Learn More</a>
+        </div>
+
+        <!-- Savings Option 5 -->
+        <div class="savings-card">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/savings5.jpg') }}" alt="Gramin Bank Savings" />
+            </div>
+            <h3>Gramin Bank Savings Scheme</h3>
+            <p>A savings scheme that supports rural development and provides financial inclusion.</p>
+            <ul>
+                <li><strong>Eligibility:</strong> Residents of rural areas.</li>
+            </ul>
+            <a href="https://mahagramin.in/personal_banking/saving_account#:~:text=Interest%20rate%20for%20Saving%20Bank%20Deposit%20%2D%202.75%20%25%20p.a." class="btn-learn-more">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 KrushiSarathi. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

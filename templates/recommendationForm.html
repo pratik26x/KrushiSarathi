@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Recommendation Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recommendationForm.css') }}">
+    <!-- Include any required fonts or icons -->
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{{ url_for('home') }}" class="logo">KrushiSarathi</a>
+            <ul class="navlist">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('home') }}#about-section">About Us</a></li>
+                <li><a href="{{ url_for('home') }}#facilities-section">Our Facilities</a></li>
+                <li><a href="{{ url_for('home') }}#finance-section">Finance</a></li>
+                <li><a href="{{ url_for('home') }}#contact-section">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <h2>Get Your Crop Recommendation</h2>
+        <p>Please enter the following details about your farm:</p>
+        <form action="{{ url_for('get_crop_recommendation') }}" method="POST" class="recommendation-form">
+            <div class="form-group">
+                <label for="nitrogen">Nitrogen Content (N)</label>
+                <input type="number" id="nitrogen" name="nitrogen" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="phosphorous">Phosphorous Content (P)</label>
+                <input type="number" id="phosphorous" name="phosphorous" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="potassium">Potassium Content (K)</label>
+                <input type="number" id="potassium" name="potassium" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="temperature">Temperature (°C)</label>
+                <input type="number" id="temperature" name="temperature" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="humidity">Humidity (%)</label>
+                <input type="number" id="humidity" name="humidity" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="ph">pH Value</label>
+                <input type="number" id="ph" name="ph" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="rainfall">Rainfall (mm)</label>
+                <input type="number" id="rainfall" name="rainfall" step="any" required>
+            </div>
+            <button type="submit" class="submit-btn">Get Crop Recommendation</button>
+        </form>
+    </section>
+
+</body>
+</html>

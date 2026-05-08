@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrushiSarathi — Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- box icons link -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- remix icons link -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+        function loadGoogleTranslate(){
+            new google.translate.TranslateElement("google_element")
+        }
+    </script>
+</head>
+<body>
+    <!-- <div id="google_element" style="color: red; width: 50%;">Choose Language</div> -->
+    <div class="welcome_page">
+        <div class="navbar">
+            <!-- <a href="#" class="logo">
+                <img src="images/logo.png" alt="">
+            </a> -->
+            <ul class="navlist">
+                <li><a href="#about-section">About Us</a></li>
+                <li><a href="#facilities-section">Our Facilities</a></li>
+                <li><a href="#finance-section">Finance</a></li>
+                <li><a href="#contact-section">Contact</a></li>
+            </ul>
+            <div class="right-content">
+                <!-- <a href="{{ url_for('signup') }}" class="nav-btn">Sign In</a>
+                <div class="bx bx-menu" id="menu-icon"></div> -->
+                {% if session.logged_in %}
+                    <span class="welcome-message">Welcome, {{ session.username }}!</span>
+                    <a href="{{ url_for('logout') }}" class="nav-btn-logout">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('signup') }}" class="nav-btn">Sign In</a>
+                {% endif %}
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-text">
+            KrushiSarathi<br>Financial Inclusion Platform for Farmers
+        </div>
+        
+        <div class="content-container">
+            <div class="hero-animation">
+                <dotlottie-player 
+                    src="https://lottie.host/e94e3a56-c632-4a1f-aca4-2588fc9c2184/B27ZuADZd1.json" 
+                    background="transparent" 
+                    speed="1" 
+                    style="width: 300px; height: 300px;" 
+                    loop autoplay>
+                </dotlottie-player>
+            </div>
+            <div class="additional-text">
+                <h2>Empowering Farmers for a Secure Future</h2>
+                <!-- <p>Our platform combines advanced technology with personalized support to help farmers make better financial decisions and maximize their crop yield.</p> -->
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- About Us Section -->
+    <section class="Benefits-section" id="about-section">
+        <div class="coin-container">
+            <img src="{{ url_for('static', filename='images/coin.png') }}" alt="Indian Coin" class="coin">
+        </div>
+
+        <div class="about-us-container">
+            <!-- <h2>About Us</h2> -->
+            <p>At <strong>KrushiSarathi</strong>, we believe in empowering farmers with the tools and resources they need to thrive in today's evolving agricultural landscape. Our platform is designed to provide comprehensive support by leveraging modern technology and expert insights to enhance crop productivity, streamline decision-making, and improve financial planning.</p>
+
+            <br><br>
+
+            <h2>Our Mission</h2>
+            <p>Our mission is simple: <strong>to help farmers grow and prosper.</strong> We believe that by integrating technology with traditional farming practices, we can bridge the gap between farmers and essential resources. Whether it's through personalized soil testing, data-driven crop suggestions, or financial support, we are here to guide and support the farming community at every step.</p>
+        </div>
+
+    </section>
+    
+
+    <!-- Our Facilities Section -->
+    <section class="Facilities-section" id="facilities-section">
+        <h2 class="section-title">Our Facilities</h2>
+        <div class="facilities-cards">
+            <!-- Data Analysis Card -->
+            <div class="facility-card">
+                <img src="{{ url_for('static', filename='images/Data Analysis.png') }}" alt="Data Analysis" class="facility-img">
+                <h3 class="facility-title">Data Analysis</h3>
+                <a href="{{ url_for('dataAnalysis') }}" class="facility-btn">Explore</a>
+            </div>
+            
+            <!-- Soil Testing Card -->
+            <div class="facility-card">
+                <img src="{{ url_for('static', filename='images/Soil Testing.jpg') }}" alt="Soil Testing" class="facility-img">
+                <h3 class="facility-title">Soil Testing</h3>
+                <a href="{{ url_for('soilTesting') }}" class="facility-btn">Explore</a>
+            </div>
+            
+            <!-- Crop Recommendation Card -->
+            <div class="facility-card">
+                <img src="{{ url_for('static', filename='images/Crop Recommendation.jpg') }}" alt="Crop Recommendation" class="facility-img">
+                <h3 class="facility-title">Crop Recommendation</h3>
+                <a href="{{ url_for('cropRecommendation') }}" class="facility-btn">Explore</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Financial Assistance Section -->
+    <section class="financial-assistance" id="finance-section">
+        <h2 class="section-title">Financial Assistance</h2>
+
+        <!-- Loans -->
+        <div class="assistance-item">
+            <div class="circle-card">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Loans Icon" class="assistance-icon">
+                <h3 class="assistance-title">Loans</h3>
+                <p class="assistance-description">
+                    Find loan options to boost your farm's growth.
+                </p>
+                <a href="{{ url_for('loans') }}" class="assistance-btn">Explore</a>
+            </div>
+        </div>
+
+        <!-- Schemes -->
+        <div class="assistance-item">
+            <div class="circle-card">
+                <img src="{{ url_for('static', filename='images/logo2.png') }}" alt="Schemes Icon" class="assistance-icon">
+                <h3 class="assistance-title">Schemes</h3>
+                <p class="assistance-description">
+                    Explore government schemes for financial aid.
+                </p>
+                <a href="{{ url_for('schemes') }}" class="assistance-btn">Explore</a>
+            </div>
+        </div>
+
+        <!-- Savings -->
+        <div class="assistance-item">
+            <div class="circle-card">
+                <img src="{{ url_for('static', filename='images/logo3.png') }}" alt="Savings Icon" class="assistance-icon">
+                <h3 class="assistance-title">Savings</h3>
+                <p class="assistance-description">
+                    Discover savings plans to secure your future.
+                </p>
+                <a href="{{ url_for('savings') }}" class="assistance-btn">Explore</a>
+            </div>
+        </div>
+
+        <!-- Lottie Animation -->
+        <div class="lottie-animation">
+            <dotlottie-player src="https://lottie.host/a3d374e4-574b-4bba-94ae-1ae122651f6a/Jy5bhYcooj.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></dotlottie-player>
+        </div>
+
+    </section>
+
+    <!-- Horizontal Card Section -->
+    <div class="horizontal-card-section">
+        <div class="horizontal-card">
+            <div class="horizontal-card-content">
+                <h3>Unlock the potential of your farm with our comprehensive tools—</h3>
+                <p>soil testing, data analysis, crop recommendations using AI, and detailed financial assistance including loans, schemes, and savings options designed just for you.</p>
+                <a href="{{ url_for('signup') }}" class="card-btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container" id="contact-section">
+            <!-- Footer Logo and Description -->
+            <div class="footer-column">
+                <div class="footer-logo">KrushiSarathi</div>
+                <p class="footer-description">
+                    Helping farmers grow better crops with innovative technology and personalized services. Stay connected for the latest updates.
+                </p>
+            </div>
+            
+            <!-- Footer Links -->
+            <div class="footer-column footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="#about-section">About Us</a></li>
+                    <li><a href="#facilities-section">Our Facilities</a></li>
+                    <li><a href="#finance-section">Financial Assistance</a></li>
+                    <li><a href="#contact-section">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <!-- Footer Contact Info -->
+            <div class="footer-column footer-contact">
+                <h4>Contact Us</h4>
+                <p>Address: 123 Farm Road, Agriculture City, AG 45678</p>
+                <p>Email: support@yourbrand.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+    
+            <!-- Footer Social Media -->
+            <div class="footer-column footer-social">
+                <h4>Follow Us</h4>
+                <div class="footer-social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            &copy; 2026 KrushiSarathi. All Rights Reserved.
+        </div>
+    </footer>
+    
+
+    
+    
+    <!-- Lottie Animation -->
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+    <!-- js link -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

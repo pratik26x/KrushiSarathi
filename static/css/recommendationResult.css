@@ -1,0 +1,104 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #F0E8D5;
+    padding-top: 80px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navlist {
+    display: flex;
+}
+
+.navlist li {
+    margin-left: 60px;
+}
+
+.navlist a {
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navlist a:hover {
+    color: #4CAF50;
+}
+
+.result-section {
+    text-align: center;
+    margin: 100px auto;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.result-section h2 {
+    font-size: 2rem;
+    color: #5A9A5A;
+    margin-bottom: 20px;
+}
+
+.result-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.crop-name {
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+.home-btn {
+    background-color: #5A9A5A;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+    background-color: #8C5A2B;
+}

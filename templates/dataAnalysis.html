@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dataAnalysis.css') }}">
+</head>
+<body>
+    <div class="data-analysis-page">
+        <!-- Navbar (optional, if you want consistency across pages) -->
+        <div class="navbar">
+            <ul class="navlist">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('home') }}#about-section">About Us</a></li>
+                <li><a href="{{ url_for('home') }}#facilities-section">Our Facilities</a></li>
+                <li><a href="{{ url_for('home') }}#finance-section">Finance</a></li>
+                <li><a href="{{ url_for('home') }}#contact-section">Contact</a></li>
+            </ul>
+        </div>
+        
+        <!-- Title -->
+        <h1 class="section-title">Crop Production in India Dashboard</h1>
+        
+        <!-- Dashboard and Description -->
+        <div class="dashboard-wrapper">
+            <!-- Power BI Dashboard iframe -->
+            <div class="dashboard-container">
+                <iframe title="BlackRock - Crop Production in India Dashboard"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiMTUyNDM3OTEtMDI4Mi00NzQwLWI2NDQtNDEzYzIwNWM4NzczIiwidCI6IjhjNzhjMTIyLWY3ODEtNDUwMC05YzJhLWY2NDVhNzYyODFmNSJ9"
+                    frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+        
+            <!-- Description -->
+            <div class="dashboard-description">
+                <p>
+                    This dashboard provides an overview of crop production in India, offering insights into various agricultural 
+                    metrics and trends. It aims to help farmers, policymakers, and stakeholders understand the current state of 
+                    crop production, identify areas for improvement, and make informed decisions.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
